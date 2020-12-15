@@ -3,7 +3,7 @@ import glob
 import json
 import random
 import math
-
+import csv
 import numpy as np
 import torch
 
@@ -62,7 +62,7 @@ class Dataset(object):
 
     def _parse_file2doc_bert(self, file_name):
         print("Processing file: %s" % file_name)
-        tsv_file = open(filename, 'r')
+        tsv_file = open(file_name, 'r')
         read_tsv = csv.reader(tsv_file, delimiter="\t")
         header_read = False
         for row in read_tsv:
