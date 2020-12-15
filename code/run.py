@@ -17,9 +17,9 @@ if __name__ == '__main__':
     parser.add_argument('--lambda1', type=float, default=0., help='lambda1')
     parser.add_argument('--lambda2', type=float, default=1., help='lambda2')
 
-    parser.add_argument('--tune_data_file', type=str, help='data for tunining hyperparameters')
-    parser.add_argument('--test_data_file', type=str, help='data for testing')
-
+    parser.add_argument('--tune_data_file', type=str, help='validation.h5df')
+    parser.add_argument('--test_data_file', type=str, help='test.h5df')
+    parser.add_argument('--output_file', type=str, help='generated_summaries.txt')
 
 
     args = parser.parse_args()
@@ -57,4 +57,4 @@ if __name__ == '__main__':
         #test
         test_dataset = Dataset(args.test_data_file, vocab_file = args.bert_vocab_file)
         test_dataset_iterator = test_dataset.iterate_once_doc_bert()
-        extractor.extract_summary(test_dataset_iterator)
+        extractor.extract_summary(test_dataset_iterator, output_path=args.output_file)
