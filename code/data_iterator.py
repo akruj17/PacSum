@@ -45,6 +45,7 @@ class Dataset(object):
         #         #print(tokenized_article[0])
 
         #         yield article, abstract, [segmented_artile]
+        print("Not here")
         pass
 
 
@@ -70,6 +71,7 @@ class Dataset(object):
                 header_read = True
                 continue
             article, abstract = row[0], row[1]
+            print(abstract)
             #article, abstract = obj['article'], obj['abstracts']
             clean_article = clean_text_by_sentences(article)
             segmented_artile = [sentence.split() for sentence in clean_article]
