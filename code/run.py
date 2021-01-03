@@ -9,17 +9,17 @@ if __name__ == '__main__':
     parser.add_argument('--mode', type=str, choices = ['tune', 'test'], help='tune or test')
     parser.add_argument('--rep', type=str, choices = ['tfidf', 'bert'], help='tfidf or bert')
     parser.add_argument('--extract_num', type=int, default=3, help='number of extracted sentences')
-    parser.add_argument('--bert_config_file', type=str, default='/disk/scratch1/s1797858/bert_model_path/uncased_L-12_H-768_A-12/bert_config.json', help='bert configuration file')
-    parser.add_argument('--bert_model_file', type=str, help='bert model file')
-    parser.add_argument('--bert_vocab_file', type=str,  default='/disk/scratch1/s1797858/bert_model_path/uncased_L-12_H-768_A-12/vocab.txt',help='bert vocabulary file')
+    parser.add_argument('--bert_config_file', type=str, default='/content/pacssum_models/bert_config.json', help='bert configuration file')
+    parser.add_argument('--bert_model_file', type=str, default='/content/pacssum_models/pytorch_finetuned.bin')
+    parser.add_argument('--bert_vocab_file', type=str,  default='/content/pacssum_models/vocab.txt',help='bert vocabulary file')
 
     parser.add_argument('--beta', type=float, default=0., help='beta')
     parser.add_argument('--lambda1', type=float, default=0., help='lambda1')
     parser.add_argument('--lambda2', type=float, default=1., help='lambda2')
 
-    parser.add_argument('--tune_data_file', type=str, help='validation.h5df')
-    parser.add_argument('--test_data_file', type=str, help='test.h5df')
-    parser.add_argument('--output_file', type=str, help='generated_summaries.txt')
+    parser.add_argument('--tune_data_file', type=str)
+    parser.add_argument('--test_data_file', type=str)
+    parser.add_argument('--output_file', type=str, default='generated_summaries.txt')
 
 
     args = parser.parse_args()
